@@ -11,7 +11,6 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         // Set the view's delegate
         sceneView.delegate = self
         
@@ -27,6 +26,9 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate {
         // Set the scene to the view
         sceneView.scene = scene
         sceneView.session.delegate = self
+        
+        // Add Tap Gesture
+        addTapGestureToSceneView()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -71,7 +73,43 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate {
     }
 }
 
-//Cursor Specific
+// Adding anchors
+extension ViewController {
+    func addTapGestureToSceneView() {
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(didReceiveTapGesture(_:)))
+        sceneView.addGestureRecognizer(tapGestureRecognizer)
+    }
+    
+    @objc func didReceiveTapGesture(_ sender: UITapGestureRecognizer) {
+        let location = sender.location(in: sceneView)
+        
+        guard let hitTestResult = sceneView.hitTest(location, types: [.featurePoint, .estimatedHorizontalPlane]).first
+            else { return }
+        let anchor = ARAnchor(transform: hitTestResult.worldTransform)
+        sceneView.session.add(anchor: anchor)
+    }
+    
+    func generateSphereNode() -> SCNNode {
+        let sphere = SCNSphere(radius: 0.05)
+        sphere.firstMaterial?.diffuse.contents = UIColor.yellow
+        let sphereNode = SCNNode()
+        sphereNode.name = "sphere"
+        sphereNode.position.y += Float(sphere.radius)
+        sphereNode.geometry = sphere
+        return sphereNode
+    }
+    
+    // ARSCNViewDelegate
+    func renderer(_ renderer: SCNSceneRenderer, didAdd node: SCNNode, for anchor: ARAnchor) {
+        guard !(anchor is ARPlaneAnchor) else { return }
+        let sphereNode = generateSphereNode()
+        DispatchQueue.main.async {
+            node.addChildNode(sphereNode)
+        }
+    }
+}
+
+// Cursor Specific
 extension ViewController {
     
     func session(_ session: ARSession, didUpdate frame: ARFrame) {
