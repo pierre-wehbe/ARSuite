@@ -29,12 +29,9 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate {
         
         // Add Tap Gesture
         addTapGestureToSceneView()
-<<<<<<< HEAD
-=======
         
         // Collision Delegate
         sceneView.scene.physicsWorld.contactDelegate = self
->>>>>>> collisionAdde
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -79,8 +76,6 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate {
     }
 }
 
-<<<<<<< HEAD
-=======
 // Collision Delegate
 extension ViewController: SCNPhysicsContactDelegate {
     
@@ -104,7 +99,6 @@ extension ViewController: SCNPhysicsContactDelegate {
     }
 }
 
->>>>>>> collisionAdde
 // Adding anchors
 extension ViewController {
     func addTapGestureToSceneView() {
