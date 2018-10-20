@@ -29,6 +29,12 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate {
         
         // Add Tap Gesture
         addTapGestureToSceneView()
+<<<<<<< HEAD
+=======
+        
+        // Collision Delegate
+        sceneView.scene.physicsWorld.contactDelegate = self
+>>>>>>> collisionAdde
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -73,6 +79,32 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate {
     }
 }
 
+<<<<<<< HEAD
+=======
+// Collision Delegate
+extension ViewController: SCNPhysicsContactDelegate {
+    
+    struct CollisionCategory {
+        let key: Int
+        static let cursor = CollisionCategory.init(key: 1 << 0)
+        static let virtualNode = CollisionCategory.init(key: 1 << 1)
+    }
+
+    func convertNodeToTarget(node: SCNNode) {
+        node.physicsBody = SCNPhysicsBody(type: .static, shape: nil)
+        node.physicsBody?.isAffectedByGravity = false
+        node.physicsBody?.categoryBitMask = CollisionCategory.virtualNode.key
+        node.physicsBody?.contactTestBitMask = CollisionCategory.cursor.key
+    }
+    
+    func physicsWorld(_ world: SCNPhysicsWorld, didBegin contact: SCNPhysicsContact) {
+        let nodeA = contact.nodeA
+        let nodeB = contact.nodeB
+        print("Hit between \(nodeA.name) & \(nodeB.name)")
+    }
+}
+
+>>>>>>> collisionAdde
 // Adding anchors
 extension ViewController {
     func addTapGestureToSceneView() {
@@ -103,6 +135,7 @@ extension ViewController {
     func renderer(_ renderer: SCNSceneRenderer, didAdd node: SCNNode, for anchor: ARAnchor) {
         guard !(anchor is ARPlaneAnchor) else { return }
         let sphereNode = generateSphereNode()
+        convertNodeToTarget(node: sphereNode)
         DispatchQueue.main.async {
             node.addChildNode(sphereNode)
         }
@@ -140,6 +173,13 @@ extension ViewController {
         
         cursor.materials =  [redMaterial];
         cursorNode.geometry = cursor
+        
+        // Physics Body for collision
+        cursorNode.physicsBody = SCNPhysicsBody(type: .static, shape: nil)
+        cursorNode.physicsBody?.isAffectedByGravity = false
+        cursorNode.physicsBody?.categoryBitMask = CollisionCategory.cursor.key
+        cursorNode.physicsBody?.collisionBitMask = CollisionCategory.virtualNode.key
+
         return cursorNode
     }
 }
