@@ -7,7 +7,7 @@
 //
 
 import XCTest
-@testable import Cursor
+@testable import CursorExample
 
 class CursorTests: XCTestCase {
 

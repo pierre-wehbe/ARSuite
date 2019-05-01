@@ -3,9 +3,8 @@ import SceneKit
 import ARKit
 import ARSuite
 
-
 class ViewController: ARSuiteViewController {
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -13,15 +12,15 @@ class ViewController: ARSuiteViewController {
         sceneView.session.delegate = self
         sceneView.delegate = self
         sceneView.scene.physicsWorld.contactDelegate = self
-        
-        // Add Tap Gesture
+
+        // Add Tap Gesture To Add Nodes
         addTapGestureToSceneView()
     }
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
     }
-    
+
     func addTapGestureToSceneView() {
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(didReceiveTapGesture(_:)))
         sceneView.addGestureRecognizer(tapGestureRecognizer)
@@ -29,13 +28,13 @@ class ViewController: ARSuiteViewController {
 
     @objc func didReceiveTapGesture(_ sender: UITapGestureRecognizer) {
         let location = sender.location(in: sceneView)
-        
+
         guard let hitTestResult = sceneView.hitTest(location, types: [.featurePoint, .estimatedHorizontalPlane]).first
             else { return }
         let anchor = ARAnchor(transform: hitTestResult.worldTransform)
         sceneView.session.add(anchor: anchor)
     }
-    
+
     func generateSphereNode() -> SCNNode {
         let sphere = SCNSphere(radius: 0.05)
         sphere.firstMaterial?.diffuse.contents = UIColor.yellow
@@ -47,7 +46,7 @@ class ViewController: ARSuiteViewController {
     }
 }
 
-// ARSCNViewDelegate
+// MARK - ARSCNViewDelegate
 extension ViewController: ARSCNViewDelegate {
     func renderer(_ renderer: SCNSceneRenderer, didAdd node: SCNNode, for anchor: ARAnchor) {
         guard !(anchor is ARPlaneAnchor) else { return }
@@ -59,14 +58,14 @@ extension ViewController: ARSCNViewDelegate {
     }
 }
 
-// ARSessionDelegate
+// MARK - ARSessionDelegate
 extension ViewController {
     override func session(_ session: ARSession, didUpdate frame: ARFrame) {
         super.session(session, didUpdate: frame)
     }
 }
 
-// SCNPhysicsContactDelegate
+// MARK - SCNPhysicsContactDelegate
 extension ViewController {
     override func physicsWorld(_ world: SCNPhysicsWorld, didBegin contact: SCNPhysicsContact) {
         super.physicsWorld(world, didBegin: contact)
