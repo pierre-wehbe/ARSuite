@@ -1,0 +1,11 @@
+framework module ARSuite {
+  umbrella header "ARSuite.h"
+
+  export *
+  module * { export * }
+}
+
+module ARSuite.Swift {
+    header "ARSuite-Swift.h"
+    requires objc
+}

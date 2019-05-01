@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:Cursor.xcodeproj">
+      location = "self:/Users/Pierre/Documents/ios_swift_ar_cursor/CursorExample.xcodeproj">
    </FileRef>
 </Workspace>
