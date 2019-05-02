@@ -2,6 +2,8 @@
 [![Travis](https://img.shields.io/travis/Ramotion/folding-cell.svg)](https://travis-ci.org/Ramotion/folding-cell)
 [![Swift 4.0](https://img.shields.io/badge/Swift-4.2-green.svg?style=flat)](https://developer.apple.com/swift/)
 
+![intro image](https://github.com/pierre-wehbe/ARSuite/blob/master/Logo.png)
+
 An ARViewController with embedded features. I am will be integrating further components along the way.
 #### Current components:
 - ARCursor
