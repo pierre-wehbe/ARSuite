@@ -19,6 +19,9 @@ class ViewController: ARSuiteViewController {
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+
+        // Initialize Cursor Delegate
+        arCursor.delegate = self
     }
 
     func addTapGestureToSceneView() {
@@ -35,14 +38,25 @@ class ViewController: ARSuiteViewController {
         sceneView.session.add(anchor: anchor)
     }
 
-    func generateSphereNode() -> SCNNode {
+    func generateSphereNode() -> ARSCNNode {
         let sphere = SCNSphere(radius: 0.05)
         sphere.firstMaterial?.diffuse.contents = UIColor.yellow
-        let sphereNode = SCNNode()
-        sphereNode.name = "sphere"
+        let sphereNode = ARSCNNode()
+        sphereNode.setTarget("sphere")
         sphereNode.position.y += Float(sphere.radius)
         sphereNode.geometry = sphere
         return sphereNode
+    }
+}
+
+// MARK - ARCursorDelegate
+extension ViewController: ARCursorDelegate {
+    func arCursor(_ cursor: ARCursor, oldTarget: ARCursorTarget, newTarget: ARCursorTarget, didTouch node: SCNNode) {
+        print("Did Touch: \(oldTarget) - \(newTarget)")
+    }
+    
+    func arCursor(_ cursor: ARCursor, oldTarget: ARCursorTarget, newTarget: ARCursorTarget, didEndTouch node: SCNNode) {
+        print("Did End Touch: \(oldTarget) - \(newTarget)")
     }
 }
 
@@ -51,7 +65,7 @@ extension ViewController: ARSCNViewDelegate {
     func renderer(_ renderer: SCNSceneRenderer, didAdd node: SCNNode, for anchor: ARAnchor) {
         guard !(anchor is ARPlaneAnchor) else { return }
         let sphereNode = generateSphereNode()
-        convertNodeToTarget(node: sphereNode)
+        sphereNode.addTargetListener()
         DispatchQueue.main.async {
             node.addChildNode(sphereNode)
         }

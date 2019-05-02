@@ -186,8 +186,15 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 # pragma pop_macro("any")
 #endif
 
-@class NSBundle;
 @class NSCoder;
+
+SWIFT_CLASS("_TtC7ARSuite9ARSCNNode")
+@interface ARSCNNode : SCNNode
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
+@end
+
+@class NSBundle;
 
 SWIFT_CLASS("_TtC7ARSuite21ARSuiteViewController")
 @interface ARSuiteViewController : UIViewController
@@ -204,8 +211,6 @@ SWIFT_CLASS("_TtC7ARSuite21ARSuiteViewController")
 @interface ARSuiteViewController (SWIFT_EXTENSION(ARSuite)) <ARSessionDelegate>
 - (void)session:(ARSession * _Nonnull)session didUpdateFrame:(ARFrame * _Nonnull)frame;
 @end
-
-
 
 @class SCNPhysicsWorld;
 @class SCNPhysicsContact;
