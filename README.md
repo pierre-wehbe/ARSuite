@@ -25,7 +25,7 @@ An ARViewController with embedded features. I am will be integrating further com
 Add the following to your Podfile:
 ```swift
 use_frameworks!
-pod 'ARSuite', :git => 'https://github.com/pierre-wehbe/ImageZoomViewPW.git', :tag => '1.0.0'
+pod 'ARSuite', :git => 'https://github.com/pierre-wehbe/ARSuite.git', :tag => '1.0.0'
 ```
 
 ### Build the framwork yourself
