@@ -120,7 +120,7 @@ extension ViewController: ARSCNViewDelegate {
 }
 ```
 
-![Demo](https://thumbs.gfycat.com/MealyArtisticAltiplanochinchillamouse-size_restricted.gif)
+![ARCursorDemo](https://github.com/pierre-wehbe/ARSuite/blob/master/gifs/ARCursor.gif)
 
 ### 3. Example Projects
 To try out the different components, example projects have been created.
