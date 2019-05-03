@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		8F34EE33227A0A3B00ED4159 /* ARCursor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F34EE32227A0A3B00ED4159 /* ARCursor.swift */; };
 		8F34EE55227A14F600ED4159 /* RealScale.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F34EE54227A14F600ED4159 /* RealScale.swift */; };
+		8F34EE89227BB0A300ED4159 /* ARSCNNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F34EE88227BB0A300ED4159 /* ARSCNNode.swift */; };
+		8F34EE8C227BB0E900ED4159 /* ARCursorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F34EE8B227BB0E900ED4159 /* ARCursorProtocol.swift */; };
+		8F34EE8E227BB15000ED4159 /* ARCursorDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F34EE8D227BB15000ED4159 /* ARCursorDelegate.swift */; };
 		8FB1EF702267E84C008AE1BC /* ARSuite.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FB1EF662267E84C008AE1BC /* ARSuite.framework */; };
 		8FB1EF752267E84C008AE1BC /* ARSuiteTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FB1EF742267E84C008AE1BC /* ARSuiteTests.swift */; };
 		8FB1EF772267E84C008AE1BC /* ARSuite.h in Headers */ = {isa = PBXBuildFile; fileRef = 8FB1EF692267E84C008AE1BC /* ARSuite.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -28,6 +31,9 @@
 /* Begin PBXFileReference section */
 		8F34EE32227A0A3B00ED4159 /* ARCursor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARCursor.swift; sourceTree = "<group>"; };
 		8F34EE54227A14F600ED4159 /* RealScale.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealScale.swift; sourceTree = "<group>"; };
+		8F34EE88227BB0A300ED4159 /* ARSCNNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARSCNNode.swift; sourceTree = "<group>"; };
+		8F34EE8B227BB0E900ED4159 /* ARCursorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARCursorProtocol.swift; sourceTree = "<group>"; };
+		8F34EE8D227BB15000ED4159 /* ARCursorDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARCursorDelegate.swift; sourceTree = "<group>"; };
 		8FB1EF662267E84C008AE1BC /* ARSuite.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ARSuite.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8FB1EF692267E84C008AE1BC /* ARSuite.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ARSuite.h; sourceTree = "<group>"; };
 		8FB1EF6A2267E84C008AE1BC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -59,7 +65,8 @@
 		8F34EE6D227A619C00ED4159 /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				8F34EE32227A0A3B00ED4159 /* ARCursor.swift */,
+				8F34EE8A227BB0D000ED4159 /* ARCursor */,
+				8F34EE88227BB0A300ED4159 /* ARSCNNode.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -70,6 +77,16 @@
 				8F34EE54227A14F600ED4159 /* RealScale.swift */,
 			);
 			path = Utilities;
+			sourceTree = "<group>";
+		};
+		8F34EE8A227BB0D000ED4159 /* ARCursor */ = {
+			isa = PBXGroup;
+			children = (
+				8F34EE32227A0A3B00ED4159 /* ARCursor.swift */,
+				8F34EE8D227BB15000ED4159 /* ARCursorDelegate.swift */,
+				8F34EE8B227BB0E900ED4159 /* ARCursorProtocol.swift */,
+			);
+			path = ARCursor;
 			sourceTree = "<group>";
 		};
 		8FB1EF5C2267E84C008AE1BC = {
@@ -221,8 +238,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				8F34EE33227A0A3B00ED4159 /* ARCursor.swift in Sources */,
+				8F34EE8C227BB0E900ED4159 /* ARCursorProtocol.swift in Sources */,
 				8FB1EF812267E8A2008AE1BC /* ARSuiteViewController.swift in Sources */,
+				8F34EE8E227BB15000ED4159 /* ARCursorDelegate.swift in Sources */,
 				8F34EE55227A14F600ED4159 /* RealScale.swift in Sources */,
+				8F34EE89227BB0A300ED4159 /* ARSCNNode.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

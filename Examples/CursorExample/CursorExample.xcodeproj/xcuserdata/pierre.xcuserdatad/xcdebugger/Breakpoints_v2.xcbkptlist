@@ -15,7 +15,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "54"
             endingLineNumber = "54"
-            landmarkName = "arCursor(_:oldTarget:newTarget:didTouch:)"
+            landmarkName = "generateSphereNode()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -31,7 +31,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "58"
             endingLineNumber = "58"
-            landmarkName = "arCursor(_:oldTarget:newTarget:didEndTouch:)"
+            landmarkName = "generateSphereNode()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

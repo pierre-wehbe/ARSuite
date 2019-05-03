@@ -8,8 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		8F1E24F6217D319E004A59C7 /* RealScale.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F1E24F5217D319E004A59C7 /* RealScale.swift */; };
-		8F34EE86227BA8C400ED4159 /* ARSuite.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F34EE85227BA8C400ED4159 /* ARSuite.framework */; };
-		8F34EE87227BA8C400ED4159 /* ARSuite.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8F34EE85227BA8C400ED4159 /* ARSuite.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		8F34EE93227BB7B600ED4159 /* ARSuite.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F34EE92227BB7B600ED4159 /* ARSuite.framework */; };
+		8F34EE94227BB7B600ED4159 /* ARSuite.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8F34EE92227BB7B600ED4159 /* ARSuite.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		8F9F64E921781C8200F6E005 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F9F64E821781C8200F6E005 /* AppDelegate.swift */; };
 		8F9F64EB21781C8200F6E005 /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 8F9F64EA21781C8200F6E005 /* art.scnassets */; };
 		8F9F64ED21781C8200F6E005 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F9F64EC21781C8200F6E005 /* ViewController.swift */; };
@@ -44,7 +44,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				8F34EE87227BA8C400ED4159 /* ARSuite.framework in Embed Frameworks */,
+				8F34EE94227BB7B600ED4159 /* ARSuite.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -53,7 +53,7 @@
 
 /* Begin PBXFileReference section */
 		8F1E24F5217D319E004A59C7 /* RealScale.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealScale.swift; sourceTree = "<group>"; };
-		8F34EE85227BA8C400ED4159 /* ARSuite.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ARSuite.framework; sourceTree = "<group>"; };
+		8F34EE92227BB7B600ED4159 /* ARSuite.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ARSuite.framework; sourceTree = "<group>"; };
 		8F9F64E521781C8200F6E005 /* CursorExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CursorExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8F9F64E821781C8200F6E005 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8F9F64EA21781C8200F6E005 /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
@@ -75,7 +75,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8F34EE86227BA8C400ED4159 /* ARSuite.framework in Frameworks */,
+				8F34EE93227BB7B600ED4159 /* ARSuite.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -99,7 +99,7 @@
 		8F9F64DC21781C8200F6E005 = {
 			isa = PBXGroup;
 			children = (
-				8F34EE85227BA8C400ED4159 /* ARSuite.framework */,
+				8F34EE92227BB7B600ED4159 /* ARSuite.framework */,
 				8F9F64E721781C8200F6E005 /* Cursor */,
 				8F9F64FE21781C8300F6E005 /* CursorTests */,
 				8F9F650921781C8300F6E005 /* CursorUITests */,

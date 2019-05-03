@@ -22,6 +22,9 @@ class ViewController: ARSuiteViewController {
 
         // Initialize Cursor Delegate
         arCursor.delegate = self
+
+        //TODO I want to call this
+        arCursor.register(targets: <#T##[ARCursorTarget]#>) //duplicates with set target, register and addlisteners, need to edfined
     }
 
     func addTapGestureToSceneView() {
@@ -38,11 +41,18 @@ class ViewController: ARSuiteViewController {
         sceneView.session.add(anchor: anchor)
     }
 
-    func generateSphereNode() -> ARSCNNode {
+    func generateSphereNode() -> ARSCNNode { // Need to be registered, what if I want multiple cursors to register to it
         let sphere = SCNSphere(radius: 0.05)
         sphere.firstMaterial?.diffuse.contents = UIColor.yellow
         let sphereNode = ARSCNNode()
         sphereNode.setTarget("sphere")
+        sphereNode.addTarget(" )
+        
+        let b = UIButton()
+        b.addTarget(<#T##target: Any?##Any?#>, action: <#T##Selector#>, for: <#T##UIControl.Event#>)
+        arCursor.register(targets: [sphereNode])
+        
+
         sphereNode.position.y += Float(sphere.radius)
         sphereNode.geometry = sphere
         return sphereNode
@@ -64,7 +74,11 @@ extension ViewController: ARCursorDelegate {
 extension ViewController: ARSCNViewDelegate {
     func renderer(_ renderer: SCNSceneRenderer, didAdd node: SCNNode, for anchor: ARAnchor) {
         guard !(anchor is ARPlaneAnchor) else { return }
+
         let sphereNode = generateSphereNode()
+        arCursor.register(targets: <#T##[ARCursorTarget]#>)
+        // Wnat to register the node, if I register the node, then I only want this node supposedy, so its target will be neglibible?
+        // or register the target name
         sphereNode.addTargetListener()
         DispatchQueue.main.async {
             node.addChildNode(sphereNode)
