@@ -94,6 +94,7 @@ public class ARCursor: ARCursorProtocol {
         return view.frame.size
     }
 
+    //TODO: Test hide, show and check that no events are being fired
     public func show() {
         let target = get()
         if target.superview == nil {

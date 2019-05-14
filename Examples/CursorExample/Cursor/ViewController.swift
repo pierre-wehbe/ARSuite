@@ -3,6 +3,10 @@ import SceneKit
 import ARKit
 import ARSuite
 
+//TODO: add target highlight on crossing
+//TODO: implement selection
+//didhighlight
+//did select ...
 class ViewController: ARSuiteViewController {
 
     override func viewDidLoad() {
